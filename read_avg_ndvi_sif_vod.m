@@ -19,18 +19,18 @@ for i = 1:length(years)
     for j = 1:length(months)
         
         % NDVI
-        fn = sprintf('./DataForMatt/Raster_NDVI/ndvi_%d_%02d.tif.bil', years(i), months(j));
+        fn = sprintf('./data/Raster_NDVI/ndvi_%d_%02d.tif.bil', years(i), months(j));
         dat = multibandread(fn, [lines, samples, 1], 'single', 0, 'bsq', 'ieee-le');
         ndvi(i, j, :, :) = dat;
         
         % SIF
-        fn = sprintf('./DataForMatt/Raster_SIF/SIF%d.bil', idx);
+        fn = sprintf('./data/Raster_SIF/SIF%d.bil', idx);
         dat = multibandread(fn, [lines, samples, 1], 'single', 0, 'bsq', 'ieee-le');
         sif(i, j, :, :) = dat;
         idx = idx+1;
         
         % VOD
-        fn = sprintf('./DataForMatt/Raster_VOD/VOD%d%d.bil', years(i), months(j));
+        fn = sprintf('./data/Raster_VOD/VOD%d%d.bil', years(i), months(j));
         dat = multibandread(fn, [lines, samples, 1], 'single', 0, 'bsq', 'ieee-le');
         vod(i, j, :, :) = dat;
                 
