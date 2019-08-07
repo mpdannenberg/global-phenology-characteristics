@@ -11,10 +11,6 @@ h.Units = 'inches';
 h.Position = [1 1 7 3.5];
 
 clr = wesanderson('fantasticfox1');
-% mstrd = make_cmap([1,1,1;clr(1,:).^2], 5);
-% rd = make_cmap([1,1,1;clr(2,:)], 5);
-% grn = make_cmap([1,1,1;clr(3,:).^2], 5);
-% clr2 = [mstrd(2:end, :); rd(2:end, :); grn(2:end, :)];
 gld = make_cmap([1,1,1;clr(1,:).^2], 4);
 rd = make_cmap([1,1,1;clr(2,:)], 4);
 grn = make_cmap([1,1,1;clr(3,:).^2], 4);
@@ -44,7 +40,6 @@ ysz = 0.06;
 idx = 1;
 for i = 1:nrows
     for j = 1:ncols
-        %annotation('rectangle',[xst+(j-1)*xsz yst-(i-1)*ysz xsz ysz], 'Color','none', 'FaceColor',clr2(idx,:))
         annotation('textbox',[xst+(j-1)*xsz yst-(i-1)*ysz xsz ysz],...
             'String', num2str(idx), 'EdgeColor','k', 'BackgroundColor',clr2(idx,:),...
             'HorizontalAlignment','center', 'VerticalAlignment','middle')
