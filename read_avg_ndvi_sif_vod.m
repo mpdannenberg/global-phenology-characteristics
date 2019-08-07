@@ -1,4 +1,4 @@
-% Test SOM with NDVI, VOD, and SIF
+% Read NDVI, SIF, and VOD data and calibrate SOM from seasonal means
 nrows = 3;
 ncols = 4;
 
