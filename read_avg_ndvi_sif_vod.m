@@ -57,6 +57,6 @@ B = NaN(lines*samples, 1);
 B(Didx) = Bmus;
 B = reshape(B, lines, samples);
 
-save('./data/global_phenology_som.mat', 'B','Bmus', 'D','Didx', 'lat','lon','sM','nrows','ncols');
+save('./data/global_phenology_som.mat', 'B','Bmus', 'D','Didx', 'lat','lon','sM','nrows','ncols', 'years','ndvi','vod','sif');
 clear all;
 
