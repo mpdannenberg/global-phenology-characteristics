@@ -35,12 +35,16 @@ for i=1:12
     end
     if i<=(ncols * (nrows-1))
         set(gca, 'xTickLabels','')
-    
+    else
+        set(gca, 'XTickLabels',{'J','F','M','A','M','J','J','A','S','O','N','D'});
     end
     if i == 1
         lgd = legend([pl1 pl2 pl3], 'NDVI','SIF','VOD', 'Location','northeast');
         legend('boxoff');
         lgd.Position = [0.18    0.84    0.1101    0.1146];
+    end
+    if i == 5
+        ylabel({'NDVI (unitless), VOD (unitless), and SIF (mW m^{-2} nm^{-1} sr^{-1})';''})
     end
     
     text(1.5, 1.9, ['Node: ', num2str(i)], 'FontSize',9);
