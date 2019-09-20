@@ -55,6 +55,21 @@ annotation('arrow',[xst xst+4*xsz], [yst-2*ysz-0.03 yst-2*ysz-0.03])
 annotation('textbox',[xst yst-3*ysz-0.03 4*xsz ysz], 'EdgeColor','none',...
     'String','Productivity', 'HorizontalAlignment','center', 'VerticalAlignment','top')
 
+nodeOrder = [1 5 9 2 6 10 3 7 11 4 8 12];
+b = NaN(1,12);
+for i = 1:12
+    b(i) = sum(Bmus==nodeOrder(i))/length(Bmus);
+end
+h1 = axes('Parent', gcf, 'Position', [0.815 0.6 0.16 0.36]);
+set(h1, 'Color','w')
+% p = pie(b, ones(1,length(nodeOrder)));
+p = pie(b);
+for i=1:length(nodeOrder)
+    set(p(i*2-1), 'FaceColor', clr2(nodeOrder(i),:));
+end
+set(findobj(p,'Type','text'), 'FontSize',7);
+
+
 set(gcf,'PaperPositionMode','auto')
 print('-dtiff','-f1','-r300','./output/ndvi-sif-vod-som-map.tif')
 close all;
