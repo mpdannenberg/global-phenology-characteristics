@@ -145,7 +145,7 @@ br(1).FaceColor = gld(4,:);
 br(2).FaceColor = rd(4,:);
 br(3).FaceColor = grn(4,:);
 
-xlabel('Node');
+xlabel('Phenoregion');
 ylabel('Proportion of pixels');
 
 ax = gca;

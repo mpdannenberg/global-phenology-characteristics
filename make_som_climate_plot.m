@@ -71,7 +71,7 @@ for i=1:12
         set(gca, 'XTickLabels',{'J','F','M','A','M','J','J','A','S','O','N','D'});
     end
     
-    text(1.5, 40, ['Node: ', num2str(i)], 'FontSize',9, 'VerticalAlignment','top');
+    text(1.5, 40, ['Phenoregion: ', num2str(i)], 'FontSize',9, 'VerticalAlignment','top');
     
     
 end

@@ -47,7 +47,7 @@ for i=1:12
         ylabel({'NDVI (unitless), VOD (unitless), and SIF (mW m^{-2} nm^{-1} sr^{-1})';''})
     end
     
-    text(1.5, 1.9, ['Node: ', num2str(i)], 'FontSize',9);
+    text(1.5, 1.9, ['Phenoregion: ', num2str(i)], 'FontSize',9);
     
     
 end

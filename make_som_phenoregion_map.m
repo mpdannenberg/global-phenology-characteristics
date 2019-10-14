@@ -47,7 +47,7 @@ for i = 1:nrows
     end
 end
 annotation('textbox',[xst yst+ysz+0.03 4*xsz ysz], 'EdgeColor','none',...
-    'String','\bfNode', 'HorizontalAlignment','center', 'FontSize',12)
+    'String','\bfPhenoregion', 'HorizontalAlignment','center', 'FontSize',12)
 annotation('arrow', [xst-0.02 xst-0.02], [yst+ysz yst-2*ysz])
 annotation('textbox',[xst-4*xsz yst-ysz*2 3.5*xsz ysz], 'EdgeColor','none',...
     'String','Seasonality', 'HorizontalAlignment','right')
