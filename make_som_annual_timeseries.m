@@ -59,7 +59,32 @@ plot([2007 2015], [0.4 0.4], 'k-')
 plot([2007 2015], [0.6 0.6], 'k-')
 plot([2007 2015], [0.8 0.8], 'k-')
 
+ax.Position(1) = 0.08;
+ax.Position(3) = 0.72;
+
+xst = 0.82;
+yst = 0.86;
+xsz = 0.032;
+ysz = 0.06;
+idx = 1;
+for i = 1:nrows
+    for j = 1:ncols
+        annotation('textbox',[xst+(j-1)*xsz yst-(i-1)*ysz xsz ysz],...
+            'String', num2str(idx), 'EdgeColor','k', 'BackgroundColor',clr2(idx,:),...
+            'HorizontalAlignment','center', 'VerticalAlignment','middle')
+        idx = idx+1;
+    end
+end
+annotation('textbox',[xst yst+ysz+0.03 4*xsz ysz], 'EdgeColor','none',...
+    'String','\bfPhenoregion', 'HorizontalAlignment','center', 'FontSize',11)
+annotation('arrow', [xst+xsz*4+0.017 xst+xsz*4+0.017], [yst+ysz yst-2*ysz])
+text(2017.02,0.88, 'Seasonality', 'HorizontalAlignment','center','VerticalAlignment','middle','Rotation',90)
+annotation('arrow',[xst xst+4*xsz], [yst-2*ysz-0.03 yst-2*ysz-0.03])
+annotation('textbox',[xst yst-3*ysz-0.03 4*xsz ysz], 'EdgeColor','none',...
+    'String','Productivity', 'HorizontalAlignment','center', 'VerticalAlignment','top')
+
+
 set(gcf,'PaperPositionMode','auto')
-print('-dtiff','-f1','-r300','./output/som-time-series.tif')
+print('-dtiff','-f1','-r300','./output/som-trends.tif')
 close all;
 
