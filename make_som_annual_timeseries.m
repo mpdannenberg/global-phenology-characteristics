@@ -48,9 +48,16 @@ for i=1:length(nodeOrder)
     
 end
 
-set(gca, 'YLim', [0 1], 'TickDir','out');
+ax = gca;
+set(ax, 'YLim', [0 1], 'TickDir','out');
 xlabel('Year');
 ylabel('Proportion of land area');
+
+hold on;
+plot([2007 2015], [0.2 0.2], 'k-')
+plot([2007 2015], [0.4 0.4], 'k-')
+plot([2007 2015], [0.6 0.6], 'k-')
+plot([2007 2015], [0.8 0.8], 'k-')
 
 set(gcf,'PaperPositionMode','auto')
 print('-dtiff','-f1','-r300','./output/som-time-series.tif')
