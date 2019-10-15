@@ -41,7 +41,7 @@ for i=1:12
     if i == 1
         lgd = legend([pl1 pl2 pl3], 'NDVI','SIF','VOD', 'Location','northeast');
         legend('boxoff');
-        lgd.Position = [0.18    0.84    0.1101    0.1146];
+        lgd.Position = [0.105    0.8    0.1101    0.1146];
     end
     if i == 5
         ylabel({'NDVI (unitless), VOD (unitless), and SIF (mW m^{-2} nm^{-1} sr^{-1})';''})
