@@ -20,6 +20,7 @@ for i=1:12
     % NDVI
     Dsub = reshape(permute(ndvi(:,:,idx),[2 1 3]), nt*nm, []);
     Dsub = Dsub(:, Bmus==i)';
+    Dsub = fillmissing(Dsub,'spline',2, 'endvalues','nearest');
     Ann = NaN(size(Dsub,1),1);
     BiAnn = NaN(size(Dsub,1),1);
     Both = NaN(size(Dsub,1),1);
@@ -51,6 +52,7 @@ for i=1:12
     % SIF
     Dsub = reshape(permute(sif(:,:,idx),[2 1 3]), nt*nm, []);
     Dsub = Dsub(:, Bmus==i)';
+    Dsub = fillmissing(Dsub,'spline',2, 'endvalues','nearest');
     Ann = NaN(size(Dsub,1),1);
     BiAnn = NaN(size(Dsub,1),1);
     Both = NaN(size(Dsub,1),1);
@@ -82,6 +84,7 @@ for i=1:12
     % VOD
     Dsub = reshape(permute(vod(:,:,idx),[2 1 3]), nt*nm, []);
     Dsub = Dsub(:, Bmus==i)';
+    Dsub = fillmissing(Dsub,'spline',2, 'endvalues','nearest');
     Ann = NaN(size(Dsub,1),1);
     BiAnn = NaN(size(Dsub,1),1);
     Both = NaN(size(Dsub,1),1);
@@ -153,7 +156,7 @@ box off;
 set(ax, 'TickDir','out');
 ax.Position(4) = 0.65;
 
-xst = 0.16;
+xst = 0.67;
 yst = 0.88;
 xsz = 0.05;
 ysz = 0.05;
