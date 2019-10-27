@@ -55,7 +55,7 @@ for i=1:12
     fill([1:12 fliplr(1:12)], [Tsub_mean-Tsub_std fliplr(Tsub_mean+Tsub_std)], clr(2,:), 'FaceAlpha',0.2, 'EdgeColor','none');
     hold on;
     pl2 = plot(1:12, Tsub_mean, '-', 'Color',clr(2,:), 'LineWidth',2);
-    set(gca, 'XLim',[1 12], 'YLim',[-20 40], 'TickDir','out', 'TickLength',[0.04 0.05], 'XTick',1:12)
+    set(gca, 'XLim',[1 12], 'YLim',[-30 40], 'TickDir','out', 'TickLength',[0.04 0.05], 'XTick',1:12)
     if rem(i, ncols)~=0
         set(gca, 'YTickLabels','')
     else

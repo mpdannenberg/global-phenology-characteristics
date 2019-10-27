@@ -15,8 +15,8 @@ for i=1:12
     axes(ax(i))
     
     Dsub = D(Bmus==i, :);
-    Dsub_mean = mean(Dsub);
-    Dsub_std = std(Dsub);
+    Dsub_mean = nanmean(Dsub);
+    Dsub_std = nanstd(Dsub);
     
     fill([1:12 fliplr(1:12)], [Dsub_mean(1:12)-Dsub_std(1:12) fliplr(Dsub_mean(1:12)+Dsub_std(1:12))], clr(1,:), 'FaceAlpha',0.4, 'EdgeColor','none');
     hold on;

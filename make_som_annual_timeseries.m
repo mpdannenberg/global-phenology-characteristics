@@ -77,7 +77,7 @@ for i = 1:nrows
 end
 annotation('textbox',[xst yst+ysz+0.03 4*xsz ysz], 'EdgeColor','none',...
     'String','\bfPhenoregion', 'HorizontalAlignment','center', 'FontSize',11)
-annotation('arrow', [xst+xsz*4+0.017 xst+xsz*4+0.017], [yst+ysz yst-2*ysz])
+annotation('arrow', [xst+xsz*4+0.017 xst+xsz*4+0.017], [yst-2*ysz yst+ysz])
 text(2017.02,0.88, 'Seasonality', 'HorizontalAlignment','center','VerticalAlignment','middle','Rotation',90)
 annotation('arrow',[xst xst+4*xsz], [yst-2*ysz-0.03 yst-2*ysz-0.03])
 annotation('textbox',[xst yst-3*ysz-0.03 4*xsz ysz], 'EdgeColor','none',...

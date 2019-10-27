@@ -45,7 +45,7 @@ vod_mean = squeeze(nanmean(vod, 1));
 vod_mean(:, lat<0, :) = vod_mean([7:12 1:6], lat<0, :);
 
 D = [reshape(ndvi_mean, 12, [])'  reshape(sif_mean, 12, [])' reshape(vod_mean, 12, [])'/2]; % Divide VOD by 2 for similar dynamic range as other indices
-Didx = sum(isnan(D), 2) == 0;
+Didx = sum(D>0, 2) > 0;
 D = D(Didx, :);
 
 cd somtoolbox;
