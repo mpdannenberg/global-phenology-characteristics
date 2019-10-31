@@ -1,4 +1,8 @@
 % Plot time-series of NDVI, SIF, and VOD for each node
+
+syear = 2007;
+eyear = 2015;
+
 load ./data/global_phenology_som.mat;
 prcp = ncread('D:/Data_Analysis/CRU/cru_ts4.01.1901.2016.pre.dat.nc', 'pre');
 tavg = ncread('D:/Data_Analysis/CRU/cru_ts4.01.1901.2016.tmp.dat.nc', 'tmp');
@@ -9,11 +13,11 @@ cyr = 1901:2016;
 prcp = reshape(permute(prcp, [2 1 3]), ny, nx, 12, []);
 tavg = reshape(permute(tavg, [2 1 3]), ny, nx, 12, []);
 
-mprcp = flipud(mean(prcp(:,:,:,cyr>=1981 & cyr<=2010), 4));
+mprcp = flipud(mean(prcp(:,:,:,cyr>=syear & cyr<=eyear), 4));
 mprcp(lat<0, :, :) = mprcp(lat<0, :, [7:12 1:6]);
 mprcp = reshape(mprcp, [], 12);
 mprcp = mprcp(Didx, :);
-mtavg = flipud(mean(tavg(:,:,:,cyr>=1981 & cyr<=2010), 4));
+mtavg = flipud(mean(tavg(:,:,:,cyr>=syear & cyr<=eyear), 4));
 mtavg(lat<0, :, :) = mtavg(lat<0, :, [7:12 1:6]);
 mtavg = reshape(mtavg, [], 12);
 mtavg = mtavg(Didx, :);
