@@ -95,3 +95,42 @@ set(gcf,'PaperPositionMode','auto')
 print('-dtiff','-f1','-r300','./output/som-trends.tif')
 close all;
 
+T = table('Size',[12,3], 'VariableTypes',{'double','double','double'}, 'VariableNames',{'Phenoregion','Trend','p'});
+nodeProps = nodeProps * (sum(garea)/1000000);
+
+for i = 1:12
+    
+    temp = nodeProps(nodeOrder==i,:);
+    
+    mdl = fitlm(2007:2015, temp);
+    T.Phenoregion(i) = i;
+    T.Trend(i) = mdl.Coefficients.Estimate(2);
+    T.p(i) = mdl.Coefficients.pValue(2);
+    
+end
+
+Tc = table('Size',[4,3], 'VariableTypes',{'double','double','double'}, 'VariableNames',{'Column','Trend','p'});
+Tr = table('Size',[3,3], 'VariableTypes',{'double','double','double'}, 'VariableNames',{'Row','Trend','p'});
+
+for i = 1:4
+    idx = ((i-1)*3+1):((i-1)*3+3);
+    temp = sum(nodeProps(idx,:));
+    
+    mdl = fitlm(2007:2015, temp);
+    Tc.Column(i) = i;
+    Tc.Trend(i) = mdl.Coefficients.Estimate(2);
+    Tc.p(i) = mdl.Coefficients.pValue(2);
+    
+end
+
+nodeProps = nodeProps(nodeOrder, :);
+for i = 1:3
+    idx = ((i-1)*4+1):((i-1)*4+4);
+    temp = sum(nodeProps(idx,:));
+    
+    mdl = fitlm(2007:2015, temp);
+    Tr.Row(i) = i;
+    Tr.Trend(i) = mdl.Coefficients.Estimate(2);
+    Tr.p(i) = mdl.Coefficients.pValue(2);
+    
+end
