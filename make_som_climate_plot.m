@@ -72,7 +72,8 @@ for i=1:12
     if i<=(ncols * (nrows-1))
         set(gca, 'xTickLabels','')
     else
-        set(gca, 'XTickLabels',{'J','F','M','A','M','J','J','A','S','O','N','D'});
+        set(gca, 'XTickLabels',{'1','2','3','4','5','6','7','8','9','10','11','12'});
+        xlabel('Month');
     end
     
     text(1.5, 40, ['Phenoregion: ', num2str(i)], 'FontSize',9, 'VerticalAlignment','top');

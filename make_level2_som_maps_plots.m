@@ -88,7 +88,8 @@ for i = 1:n
         if j<=(ncols * (nrows-1))
             set(gca, 'xTickLabels','')
         else
-            set(gca, 'XTickLabels',{'J','F','M','A','M','J','J','A','S','O','N','D'});
+            set(gca, 'XTickLabels',{'1','2','3','4','5','6','7','8','9','10','11','12'});
+            xlabel('Month');
         end
         if j == 1
             lgd = legend([pl1 pl2 pl3], 'NDVI','SIF','VOD', 'Location','northeast');
