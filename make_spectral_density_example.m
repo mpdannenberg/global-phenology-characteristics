@@ -45,6 +45,7 @@ set(gca, 'XLim',[datenum(2007,1,1) datenum(2016,1,1)], 'TickDir','out', 'TickLen
 box off;
 ylabel('NDVI');
 xlabel('Date');
+text(datenum(2007,3,15), 0.6, 'A', 'FontSize',12)
 
 subplot(2,1,2)
 fill([fn' fliplr(fn')], [log(pxxnup) fliplr(log(pxxnlow))], [0.8 0.8 0.8], 'EdgeColor','none')
@@ -57,6 +58,7 @@ ylabel('Log power density');
 xlabel('Number of annual cycles');
 legend('Noise','Observed', 'Location','northeast');
 legend('boxoff')
+text(0.15, 0., 'B', 'FontSize',12)
 
 set(gcf,'PaperPositionMode','auto')
 print('-dtiff','-f1','-r300','./output/cycles-per-year-example-power-density.tif')
