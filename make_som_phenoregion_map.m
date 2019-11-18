@@ -56,9 +56,14 @@ annotation('textbox',[xst yst-3*ysz-0.03 4*xsz ysz], 'EdgeColor','none',...
     'String','Productivity', 'HorizontalAlignment','center', 'VerticalAlignment','top')
 
 nodeOrder = [1 5 9 2 6 10 3 7 11 4 8 12];
+[LON, LAT] = meshgrid(lon, lat);
+e = referenceEllipsoid('World Geodetic System 1984');
+garea = areaquad(reshape(LAT-0.25,[],1),reshape(LON-0.25,[],1),reshape(LAT+0.25,[],1),reshape(LON+0.25,[],1),e);
+garea = garea(Didx); 
+clear LON LAT e;
 b = NaN(1,12);
 for i = 1:12
-    b(i) = sum(Bmus==nodeOrder(i))/length(Bmus);
+    b(i) = sum(garea(Bmus==nodeOrder(i)))/sum(garea);
 end
 h1 = axes('Parent', gcf, 'Position', [0.815 0.6 0.16 0.36]);
 set(h1, 'Color','w')

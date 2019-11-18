@@ -2,6 +2,12 @@
 
 load ./data/global_phenology_som.mat;
 
+[LON, LAT] = meshgrid(lon, lat);
+e = referenceEllipsoid('World Geodetic System 1984');
+garea = areaquad(reshape(LAT-0.25,[],1),reshape(LON-0.25,[],1),reshape(LAT+0.25,[],1),reshape(LON+0.25,[],1),e);
+garea = garea(Didx); 
+clear LON LAT e;
+
 latlim = [-75 75];
 lonlim = [-180 180];
 worldland = shaperead('landareas','UseGeoCoords', true);
@@ -36,9 +42,10 @@ nodeOrder = [1 5 9 2 6 10 3 7 11 4 8 12];
 nodeProps = NaN(length(nodeOrder), length(years));
 
 for i = 1:length(nodeOrder)
-    
-    nodeProps(i, :) = sum(Bmus_ByYear == nodeOrder(i)) / size(Bmus_ByYear,1);
-    
+    for j = 1:size(Bmus_ByYear, 2)
+    %nodeProps(i, :) = sum(Bmus_ByYear == nodeOrder(i)) / size(Bmus_ByYear,1);
+    nodeProps(i, j) = sum(garea(Bmus_ByYear(:, j) == nodeOrder(i))) / sum(garea);
+    end
 end
 
 har = area(years,nodeProps', 'LineStyle','none');
