@@ -15,6 +15,9 @@ pctAnnual = NaN(12,3);
 pctBiAnnual = NaN(12,3);
 pctBoth = NaN(12,3);
 
+totAnnual = NaN(length(Bmus), 3);
+totBiAnnual = NaN(length(Bmus), 3);
+
 for i=1:12
     
     % NDVI
@@ -48,6 +51,8 @@ for i=1:12
     pctAnnual(i, 1) = sum(Ann) / length(Ann);
     pctBiAnnual(i, 1) = sum(BiAnn) / length(BiAnn);
     pctBoth(i, 1) = sum(Both) / length(Both);
+    totAnnual(Bmus==i, 1) = Ann | Both;
+    totBiAnnual(Bmus==i, 1) = BiAnn | Both;
     
     % SIF
     Dsub = reshape(permute(sif(:,:,idx),[2 1 3]), nt*nm, []);
@@ -80,6 +85,8 @@ for i=1:12
     pctAnnual(i, 2) = sum(Ann) / length(Ann);
     pctBiAnnual(i, 2) = sum(BiAnn) / length(BiAnn);
     pctBoth(i, 2) = sum(Both) / length(Both);
+    totAnnual(Bmus==i, 2) = Ann | Both;
+    totBiAnnual(Bmus==i, 2) = BiAnn | Both;
     
     % VOD
     Dsub = reshape(permute(vod(:,:,idx),[2 1 3]), nt*nm, []);
@@ -112,12 +119,14 @@ for i=1:12
     pctAnnual(i, 3) = sum(Ann) / length(Ann);
     pctBiAnnual(i, 3) = sum(BiAnn) / length(BiAnn);
     pctBoth(i, 3) = sum(Both) / length(Both);
+    totAnnual(Bmus==i, 3) = Ann | Both;
+    totBiAnnual(Bmus==i, 3) = BiAnn | Both;
     
     
     
 end
 
-save('./output/spectraldensity.mat','pctAnnual', 'pctBiAnnual', 'pctBoth');
+save('./output/spectraldensity.mat','pctAnnual', 'pctBiAnnual', 'pctBoth', 'totAnnual', 'totBiAnnual');
 
 %% Make figure
 % Plot
