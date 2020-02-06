@@ -68,7 +68,11 @@ for i=1:12
     
     box off;
     
-    
+    if i == 1
+        lgd = legend([pl3 pl2], 'Precipitation','Temperature', 'Location','northeast');
+        legend('boxoff');
+        lgd.Position = [0.105    0.86    0.1101    0.075];
+    end
     if i<=(ncols * (nrows-1))
         set(gca, 'xTickLabels','')
     else
@@ -76,7 +80,7 @@ for i=1:12
         xlabel('Month');
     end
     
-    text(1.5, 40, ['Phenoregion: ', num2str(i)], 'FontSize',9, 'VerticalAlignment','top');
+    text(1.5, 45, ['Phenoregion: ', num2str(i)], 'FontSize',9, 'VerticalAlignment','top');
     
     
 end
