@@ -12,7 +12,7 @@ vodm = repmat(nanmean(vod, 1), 9, 1,1,1); vod(isnan(vod)) = vodm(isnan(vod));
 idx = reshape(Didx, ny, nx);
 
 i = 10;
-k = 2290;
+k = 1751;
 
 Dsub = reshape(permute(ndvi(:,:,idx),[2 1 3]), nt*nm, []);
 Dsub = Dsub(:, Bmus==i)';
