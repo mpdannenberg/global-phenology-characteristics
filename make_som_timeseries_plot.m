@@ -18,10 +18,10 @@ for i=1:12
     Dsub_mean = nanmean(Dsub);
     Dsub_std = nanstd(Dsub);
     
-    fill([1:12 fliplr(1:12)], [Dsub_mean(1:12)-Dsub_std(1:12) fliplr(Dsub_mean(1:12)+Dsub_std(1:12))], clr(1,:), 'FaceAlpha',0.4, 'EdgeColor','none');
+    fill([1:12 fliplr(1:12)], [Dsub_mean(1:12)-Dsub_std(1:12) fliplr(Dsub_mean(1:12)+Dsub_std(1:12))], clr(1,:), 'FaceAlpha',0.6, 'EdgeColor','none');
     hold on;
-    fill([1:12 fliplr(1:12)], [Dsub_mean(13:24)-Dsub_std(13:24) fliplr(Dsub_mean(13:24)+Dsub_std(13:24))], clr(2,:), 'FaceAlpha',0.2, 'EdgeColor','none');
-    fill([1:12 fliplr(1:12)], [Dsub_mean(25:36)-Dsub_std(25:36) fliplr(Dsub_mean(25:36)+Dsub_std(25:36))], clr(3,:), 'FaceAlpha',0.2, 'EdgeColor','none');
+    fill([1:12 fliplr(1:12)], [Dsub_mean(13:24)-Dsub_std(13:24) fliplr(Dsub_mean(13:24)+Dsub_std(13:24))], clr(2,:), 'FaceAlpha',0.4, 'EdgeColor','none');
+    fill([1:12 fliplr(1:12)], [Dsub_mean(25:36)-Dsub_std(25:36) fliplr(Dsub_mean(25:36)+Dsub_std(25:36))], clr(3,:), 'FaceAlpha',0.6, 'EdgeColor','none');
     pl1 = plot(1:12, Dsub_mean(1:12), '-', 'Color',clr(1,:).^2, 'LineWidth',2);
     pl2 = plot(1:12, Dsub_mean(13:24), '-', 'Color',clr(2,:), 'LineWidth',2);
     pl3 = plot(1:12, Dsub_mean(25:36), '-', 'Color',clr(3,:).^2, 'LineWidth',2);
